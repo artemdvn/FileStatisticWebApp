@@ -1,4 +1,4 @@
-package com.luxoft;
+package com.luxoft.filestatistic;
 
 import static org.junit.Assert.assertEquals;
 
