@@ -29,6 +29,7 @@ public class LineOfFileDaoImpl implements LineOfFileDao{
 		return instance;
 	}
 	
+	@Override
 	public void saveLineOfFile(LineOfFile line){
 		Session session = sf.openSession();
 		session.beginTransaction();
@@ -37,6 +38,7 @@ public class LineOfFileDaoImpl implements LineOfFileDao{
 		session.close();
 	}
 	
+	@Override
 	public List<LineOfFile> getAllLinesOfFile(FileStatistic fs){
 		Session session = sf.openSession();
 		Query query = session.createQuery("from LineOfFile where fileId = :id");

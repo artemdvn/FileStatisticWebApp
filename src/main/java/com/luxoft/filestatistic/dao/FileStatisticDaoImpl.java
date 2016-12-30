@@ -27,6 +27,7 @@ public class FileStatisticDaoImpl implements FileStatisticDao{
 		return instance;
 	}
 	
+	@Override
 	public void saveFileStatistic(FileStatistic fs){
 		Session session = sf.openSession();
 		session.beginTransaction();
@@ -35,6 +36,7 @@ public class FileStatisticDaoImpl implements FileStatisticDao{
 		session.close();		
     }
 	
+	@Override
 	public List<FileStatistic> getAllFileStatistic(){
 		Session session = sf.openSession();
 		List<FileStatistic> fileStatistics = session.createQuery("from FileStatistic").getResultList();
@@ -42,6 +44,7 @@ public class FileStatisticDaoImpl implements FileStatisticDao{
 		return fileStatistics;		
 	}
 	
+	@Override
 	public FileStatistic get(Long id){
 		Session session = sf.openSession();
 		FileStatistic fs = session.get(FileStatistic.class, id);

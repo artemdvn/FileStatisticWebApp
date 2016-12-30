@@ -2,7 +2,6 @@ package com.luxoft.filestatistic.services;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,22 +14,23 @@ import com.luxoft.filestatistic.model.LineOfFile;
 @Service
 public class FileStatisticServiceImpl implements FileStatisticService {
 	
-	private Logger logger = Logger.getLogger(FileStatisticServiceImpl.class);
-	
 	@Autowired
 	private FileStatisticDao fileStatisticDao;
 	
 	@Autowired
 	private LineOfFileDao lineOfFileDao;
 	
+	@Override
 	public List<FileStatistic> getAllFileStatistic(){
 		return fileStatisticDao.getAllFileStatistic();		
 	}
 	
+	@Override
 	public FileStatistic getFileStatistic(Long id){
 		return fileStatisticDao.get(id);    	
     }
 	
+	@Override
 	@Transactional
 	public void saveFileStatistic(String filename) {
 		FileHandler fileHandler = new FileHandler();
@@ -44,6 +44,7 @@ public class FileStatisticServiceImpl implements FileStatisticService {
 		}
 	}
 	
+	@Override
 	public List<LineOfFile> getAllLinesOfFile(FileStatistic fs){
 		return lineOfFileDao.getAllLinesOfFile(fs);
 	}
